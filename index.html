@@ -20,21 +20,21 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
-    background: var(--paper);
+    background: #ece8e0;
     font-family: 'Noto Sans SC', sans-serif;
     color: var(--ink);
-    width: 900px;
-    margin: 0 auto;
+    padding: 40px 20px;
   }
 
   .page {
     background: var(--paper);
     position: relative;
     overflow: hidden;
+    width: 960px;
+    margin: 0 auto;
     padding: 60px 70px;
   }
 
-  /* Decorative background */
   .page::before {
     content: '';
     position: absolute;
@@ -45,7 +45,6 @@
     pointer-events: none;
   }
 
-  /* Border frame */
   .frame-outer {
     border: 3px solid var(--stroke);
     padding: 4px;
@@ -57,11 +56,9 @@
     position: relative;
   }
 
-  /* Corner decorations */
   .corner {
     position: absolute;
-    width: 30px;
-    height: 30px;
+    width: 30px; height: 30px;
     border-color: var(--red);
     border-style: solid;
   }
@@ -73,10 +70,8 @@
   /* Header */
   .header {
     text-align: center;
-    margin-bottom: 48px;
-    position: relative;
+    margin-bottom: 40px;
   }
-
   .header-badge {
     display: inline-block;
     background: var(--red);
@@ -88,28 +83,22 @@
     padding: 6px 20px;
     margin-bottom: 20px;
   }
-
   .header h1 {
     font-family: 'Noto Serif SC', serif;
-    font-size: 32px;
+    font-size: 30px;
     font-weight: 900;
     color: var(--stroke);
     line-height: 1.3;
     margin-bottom: 10px;
     letter-spacing: 2px;
   }
-
-  .header h1 span {
-    color: var(--red);
-  }
-
+  .header h1 span { color: var(--red); }
   .header-sub {
     font-size: 13px;
     color: var(--muted);
     letter-spacing: 3px;
     margin-bottom: 16px;
   }
-
   .speaker-tag {
     display: inline-flex;
     align-items: center;
@@ -120,296 +109,28 @@
     font-size: 13px;
     color: var(--stroke);
   }
+  .speaker-dot { width: 6px; height: 6px; background: var(--gold); border-radius: 50%; }
 
-  .speaker-dot {
-    width: 6px; height: 6px;
-    background: var(--gold);
-    border-radius: 50%;
-  }
-
-  .divider {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin: 32px 0;
-  }
-  .divider-line {
-    flex: 1;
-    height: 1px;
-    background: linear-gradient(to right, transparent, var(--gold), transparent);
-  }
-  .divider-diamond {
-    width: 8px; height: 8px;
-    background: var(--red);
-    transform: rotate(45deg);
-  }
-
-  /* Strategy grid */
-  .strategy-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    margin-bottom: 28px;
-  }
-
-  .strategy-card {
-    background: white;
-    border: 1px solid #e8e0d4;
-    padding: 22px 24px;
-    position: relative;
-    transition: all 0.2s;
-    box-shadow: 2px 2px 0 rgba(184,134,11,0.15);
-  }
-
-  .strategy-card:hover {
-    box-shadow: 4px 4px 0 rgba(184,134,11,0.25);
-    transform: translate(-1px,-1px);
-  }
-
-  .card-number {
-    position: absolute;
-    top: -14px;
-    left: 20px;
-    background: var(--stroke);
-    color: var(--gold-light);
-    font-family: 'Noto Serif SC', serif;
-    font-size: 11px;
-    font-weight: 700;
-    padding: 3px 10px;
-    letter-spacing: 2px;
-  }
-
-  .card-header {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    margin-bottom: 12px;
-  }
-
-  .card-icon {
-    width: 38px;
-    height: 38px;
-    background: var(--cream);
-    border: 1px solid var(--gold);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    font-size: 18px;
-  }
-
-  .card-title {
-    font-family: 'Noto Serif SC', serif;
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--stroke);
-    line-height: 1.4;
-  }
-
-  .card-title .keyword {
-    color: var(--red);
-  }
-
-  .card-desc {
-    font-size: 12px;
-    color: var(--muted);
-    line-height: 1.8;
-  }
-
-  .card-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-    margin-top: 12px;
-  }
-
-  .tag {
-    font-size: 10px;
-    padding: 3px 9px;
-    border: 1px solid currentColor;
-    letter-spacing: 1px;
-  }
-
-  .tag-red { color: var(--red); border-color: rgba(196,30,58,0.3); background: rgba(196,30,58,0.04); }
-  .tag-gold { color: var(--gold); border-color: rgba(184,134,11,0.3); background: rgba(184,134,11,0.04); }
-  .tag-ink { color: var(--muted); border-color: rgba(107,90,78,0.3); background: rgba(107,90,78,0.04); }
-
-  /* Featured card - AI */
-  .strategy-card.featured {
-    border-color: var(--red);
-    background: linear-gradient(135deg, #fff 0%, #fff9f7 100%);
-    box-shadow: 3px 3px 0 rgba(196,30,58,0.2);
-  }
-  .strategy-card.featured .card-icon {
-    background: var(--red);
-    border-color: var(--red);
-    color: white;
-  }
-
-  /* Bottom summary */
-  .summary {
-    background: var(--stroke);
-    color: var(--cream);
-    padding: 28px 32px;
-    display: flex;
-    align-items: center;
-    gap: 28px;
-    margin-top: 12px;
-  }
-
-  .summary-text {
-    flex: 1;
-  }
-
-  .summary-title {
-    font-family: 'Noto Serif SC', serif;
-    font-size: 13px;
-    color: var(--gold-light);
-    letter-spacing: 3px;
-    margin-bottom: 8px;
-  }
-
-  .summary-content {
-    font-size: 12px;
-    line-height: 1.9;
-    color: rgba(245,240,232,0.85);
-  }
-
-  .summary-stats {
-    display: flex;
-    gap: 24px;
-    flex-shrink: 0;
-  }
-
-  .stat {
-    text-align: center;
-    border-left: 1px solid rgba(212,168,42,0.3);
-    padding-left: 24px;
-  }
-
-  .stat-num {
-    font-family: 'Noto Serif SC', serif;
-    font-size: 28px;
-    font-weight: 900;
-    color: var(--gold-light);
-    line-height: 1;
-  }
-
-  .stat-label {
-    font-size: 10px;
-    color: rgba(245,240,232,0.6);
-    margin-top: 4px;
-    letter-spacing: 1px;
-  }
-
-  .footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 28px;
-    padding-top: 20px;
-    border-top: 1px solid #e0d8cc;
-  }
-
-  .footer-left {
-    font-size: 11px;
-    color: var(--muted);
-    letter-spacing: 1px;
-  }
-
-  .footer-seal {
-    width: 60px;
-    height: 60px;
-    border: 2px solid var(--red);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-  }
-
-  .footer-seal::before {
-    content: '';
-    position: absolute;
-    inset: 4px;
-    border: 1px solid rgba(196,30,58,0.4);
-    border-radius: 50%;
-  }
-
-  .footer-seal span {
-    font-family: 'Noto Serif SC', serif;
-    font-size: 9px;
-    color: var(--red);
-    font-weight: 700;
-    text-align: center;
-    line-height: 1.4;
-    letter-spacing: 1px;
-  }
-
-  .total-roadmap {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0;
-    margin: 24px 0 8px;
-  }
-
-  .roadmap-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .roadmap-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: var(--gold);
-    border: 2px solid var(--stroke);
-    position: relative;
-    z-index: 1;
-  }
-
-  .roadmap-label {
-    font-family: 'Noto Serif SC', serif;
-    font-size: 11px;
-    color: var(--stroke);
-    font-weight: 700;
-    white-space: nowrap;
-  }
-
-  .roadmap-line {
-    width: 80px;
-    height: 1px;
-    background: linear-gradient(to right, var(--gold), var(--gold));
-    margin-bottom: 18px;
-  }
-
+  /* Overall strategy */
   .overall-strategy {
     text-align: center;
-    margin-bottom: 32px;
+    margin-bottom: 36px;
     padding: 16px 24px;
     background: linear-gradient(to right, transparent, rgba(184,134,11,0.08), transparent);
     border-top: 1px solid rgba(184,134,11,0.3);
     border-bottom: 1px solid rgba(184,134,11,0.3);
   }
-
   .overall-label {
     font-size: 10px;
     color: var(--muted);
     letter-spacing: 3px;
     margin-bottom: 8px;
   }
-
   .overall-items {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0;
-    flex-wrap: wrap;
   }
-
   .overall-item {
     font-family: 'Noto Serif SC', serif;
     font-size: 14px;
@@ -418,7 +139,6 @@
     padding: 0 16px;
     position: relative;
   }
-
   .overall-item:not(:last-child)::after {
     content: '·';
     position: absolute;
@@ -427,9 +147,212 @@
     font-size: 20px;
     line-height: 1;
   }
+  .overall-item .hl { color: var(--red); }
 
-  .overall-item .highlight {
+  /* Strategy cards grid */
+  .strategy-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    margin-bottom: 22px;
+  }
+
+  .strategy-card {
+    background: white;
+    border: 1px solid #e8e0d4;
+    position: relative;
+    box-shadow: 2px 2px 0 rgba(184,134,11,0.15);
+    overflow: hidden;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .strategy-card:hover {
+    box-shadow: 5px 5px 0 rgba(184,134,11,0.25);
+    transform: translate(-1px,-1px);
+  }
+  .strategy-card.featured {
+    border-color: rgba(196,30,58,0.4);
+    box-shadow: 2px 2px 0 rgba(196,30,58,0.2);
+  }
+  .strategy-card.featured:hover {
+    box-shadow: 5px 5px 0 rgba(196,30,58,0.3);
+  }
+
+  /* SVG illustration area */
+  .card-illustration {
+    width: 100%;
+    height: 130px;
+    background: var(--cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #e8e0d4;
+    position: relative;
+    overflow: hidden;
+  }
+  .card-illustration svg {
+    width: 100%;
+    height: 100%;
+  }
+  .featured .card-illustration {
+    background: linear-gradient(135deg, #fff5f5, #ffeaea);
+  }
+
+  .card-number {
+    position: absolute;
+    top: 8px; left: 12px;
+    background: var(--stroke);
+    color: var(--gold-light);
+    font-family: 'Noto Serif SC', serif;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 9px;
+    letter-spacing: 2px;
+    z-index: 2;
+  }
+  .featured .card-number {
+    background: var(--red);
+    color: white;
+  }
+
+  .card-body {
+    padding: 18px 20px 16px;
+  }
+
+  .card-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--stroke);
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+  .card-title .keyword { color: var(--red); }
+
+  .card-desc {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: 10px;
+  }
+
+  .card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  .tag {
+    font-size: 10px;
+    padding: 2px 8px;
+    border: 1px solid currentColor;
+    letter-spacing: 1px;
+  }
+  .tag-red { color: var(--red); border-color: rgba(196,30,58,0.3); background: rgba(196,30,58,0.04); }
+  .tag-gold { color: var(--gold); border-color: rgba(184,134,11,0.3); background: rgba(184,134,11,0.04); }
+  .tag-ink { color: var(--muted); border-color: rgba(107,90,78,0.3); background: rgba(107,90,78,0.04); }
+
+  /* Card 5 full width */
+  .card-wide {
+    background: white;
+    border: 1px solid #e8e0d4;
+    box-shadow: 2px 2px 0 rgba(184,134,11,0.15);
+    overflow: hidden;
+    margin-bottom: 22px;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .card-wide:hover {
+    box-shadow: 5px 5px 0 rgba(184,134,11,0.25);
+    transform: translate(-1px,-1px);
+  }
+  .card-wide .card-illustration {
+    height: 110px;
+  }
+  .card-wide-body {
+    padding: 18px 24px 16px;
+  }
+  .card-wide-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    margin-top: 12px;
+  }
+  .wide-col-title {
+    font-size: 11px;
     color: var(--red);
+    font-weight: 700;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+  }
+
+  /* Summary */
+  .summary {
+    background: var(--stroke);
+    color: var(--cream);
+    padding: 26px 32px;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+  .summary-text { flex: 1; }
+  .summary-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 13px;
+    color: var(--gold-light);
+    letter-spacing: 3px;
+    margin-bottom: 8px;
+  }
+  .summary-content {
+    font-size: 12px;
+    line-height: 1.9;
+    color: rgba(245,240,232,0.85);
+  }
+  .summary-stats { display: flex; gap: 24px; flex-shrink: 0; }
+  .stat {
+    text-align: center;
+    border-left: 1px solid rgba(212,168,42,0.3);
+    padding-left: 24px;
+  }
+  .stat-num {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--gold-light);
+    line-height: 1;
+  }
+  .stat-label { font-size: 10px; color: rgba(245,240,232,0.6); margin-top: 4px; letter-spacing: 1px; }
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 24px;
+    padding-top: 18px;
+    border-top: 1px solid #e0d8cc;
+  }
+  .footer-left { font-size: 11px; color: var(--muted); letter-spacing: 1px; line-height: 1.8; }
+  .footer-seal {
+    width: 58px; height: 58px;
+    border: 2px solid var(--red);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .footer-seal::before {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    border: 1px solid rgba(196,30,58,0.4);
+    border-radius: 50%;
+  }
+  .footer-seal span {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 9px;
+    color: var(--red);
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.4;
+    letter-spacing: 1px;
   }
 </style>
 </head>
@@ -458,115 +381,287 @@
       <div class="overall-strategy">
         <div class="overall-label">总体思路</div>
         <div class="overall-items">
-          <div class="overall-item"><span class="highlight">强基</span>固本</div>
-          <div class="overall-item"><span class="highlight">分类</span>培养</div>
-          <div class="overall-item"><span class="highlight">优化</span>结构</div>
-          <div class="overall-item"><span class="highlight">智能</span>赋能</div>
-          <div class="overall-item"><span class="highlight">开放</span>互鉴</div>
+          <div class="overall-item"><span class="hl">强基</span>固本</div>
+          <div class="overall-item"><span class="hl">分类</span>培养</div>
+          <div class="overall-item"><span class="hl">优化</span>结构</div>
+          <div class="overall-item"><span class="hl">智能</span>赋能</div>
+          <div class="overall-item"><span class="hl">开放</span>互鉴</div>
         </div>
       </div>
 
-      <!-- Strategy cards -->
+      <!-- Cards grid -->
       <div class="strategy-grid">
 
-        <!-- Card 1 -->
+        <!-- Card 1: 强基固本 -->
         <div class="strategy-card">
           <div class="card-number">壹 · 强基固本</div>
-          <div class="card-header">
-            <div class="card-icon">📚</div>
+          <div class="card-illustration">
+            <svg viewBox="0 0 400 130" xmlns="http://www.w3.org/2000/svg">
+              <!-- Background subtle pattern -->
+              <rect width="400" height="130" fill="#f5f0e8"/>
+              <circle cx="340" cy="20" r="60" fill="rgba(184,134,11,0.06)"/>
+              <circle cx="60" cy="110" r="50" fill="rgba(196,30,58,0.05)"/>
+              <!-- Books stack -->
+              <rect x="60" y="72" width="70" height="10" rx="2" fill="#c41e3a" opacity="0.8"/>
+              <rect x="55" y="60" width="75" height="12" rx="2" fill="#2c1810" opacity="0.7"/>
+              <rect x="62" y="48" width="68" height="12" rx="2" fill="#b8860b" opacity="0.8"/>
+              <rect x="58" y="36" width="72" height="12" rx="2" fill="#c41e3a" opacity="0.6"/>
+              <!-- Book spines detail -->
+              <line x1="65" y1="36" x2="65" y2="48" stroke="white" stroke-width="1" opacity="0.4"/>
+              <line x1="75" y1="60" x2="75" y2="72" stroke="white" stroke-width="1" opacity="0.4"/>
+              <!-- Graduation cap -->
+              <polygon points="200,30 230,45 200,60 170,45" fill="#2c1810" opacity="0.85"/>
+              <rect x="226" y="45" width="3" height="22" fill="#2c1810" opacity="0.7"/>
+              <circle cx="229" cy="67" r="4" fill="#c41e3a"/>
+              <rect x="195" y="58" width="10" height="16" rx="1" fill="#2c1810" opacity="0.7"/>
+              <!-- Stars/sparkles -->
+              <text x="270" y="45" font-size="18" fill="#b8860b" opacity="0.7">✦</text>
+              <text x="155" y="80" font-size="12" fill="#c41e3a" opacity="0.5">✦</text>
+              <text x="310" y="80" font-size="10" fill="#b8860b" opacity="0.4">✦</text>
+              <!-- Decorative line -->
+              <line x1="40" y1="95" x2="360" y2="95" stroke="#b8860b" stroke-width="0.5" opacity="0.3" stroke-dasharray="4,4"/>
+              <!-- Chinese pattern bottom -->
+              <text x="200" y="118" text-anchor="middle" font-family="serif" font-size="10" fill="#6b5a4e" opacity="0.5" letter-spacing="6">立德树人  能力为先</text>
+            </svg>
+          </div>
+          <div class="card-body">
             <div class="card-title">夯实<span class="keyword">创新人才</span>培养根基</div>
-          </div>
-          <div class="card-desc">
-            落实立德树人根本任务，深入实施"101计划"，推动人才培养从"知识为主"转向"能力素质为先"，完善学生实习实践制度。
-          </div>
-          <div class="card-tags">
-            <span class="tag tag-red">思政铸魂</span>
-            <span class="tag tag-gold">101计划</span>
-            <span class="tag tag-ink">产教融合</span>
-            <span class="tag tag-ink">多元评价</span>
+            <div class="card-desc">落实立德树人根本任务，深入实施"101计划"，推动人才培养从"知识为主"转向"能力素质为先"，完善学生实习实践制度。</div>
+            <div class="card-tags">
+              <span class="tag tag-red">思政铸魂</span>
+              <span class="tag tag-gold">101计划</span>
+              <span class="tag tag-ink">产教融合</span>
+              <span class="tag tag-ink">多元评价</span>
+            </div>
           </div>
         </div>
 
-        <!-- Card 2 -->
+        <!-- Card 2: 分类培养 -->
         <div class="strategy-card">
           <div class="card-number">贰 · 分类培养</div>
-          <div class="card-header">
-            <div class="card-icon">🏆</div>
+          <div class="card-illustration">
+            <svg viewBox="0 0 400 130" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="130" fill="#f5f0e8"/>
+              <circle cx="50" cy="30" r="55" fill="rgba(196,30,58,0.05)"/>
+              <circle cx="360" cy="100" r="55" fill="rgba(184,134,11,0.06)"/>
+              <!-- Trophy -->
+              <path d="M185 25 L215 25 L215 65 Q215 80 200 85 Q185 80 185 65 Z" fill="#b8860b" opacity="0.85"/>
+              <rect x="195" y="85" width="10" height="15" fill="#b8860b" opacity="0.7"/>
+              <rect x="185" y="100" width="30" height="5" rx="2" fill="#2c1810" opacity="0.7"/>
+              <!-- Trophy handles -->
+              <path d="M185 35 Q165 35 165 55 Q165 65 185 65" fill="none" stroke="#b8860b" stroke-width="4" opacity="0.7"/>
+              <path d="M215 35 Q235 35 235 55 Q235 65 215 65" fill="none" stroke="#b8860b" stroke-width="4" opacity="0.7"/>
+              <!-- Star on trophy -->
+              <text x="193" y="58" font-size="16" fill="white" opacity="0.9">★</text>
+              <!-- Ascending bars (talent ladder) -->
+              <rect x="270" y="85" width="18" height="20" rx="1" fill="#c41e3a" opacity="0.6"/>
+              <rect x="294" y="68" width="18" height="37" rx="1" fill="#c41e3a" opacity="0.7"/>
+              <rect x="318" y="50" width="18" height="55" rx="1" fill="#c41e3a" opacity="0.85"/>
+              <!-- Arrow up -->
+              <path d="M340 45 L355 30 L370 45" fill="none" stroke="#c41e3a" stroke-width="2" opacity="0.6"/>
+              <line x1="355" y1="30" x2="355" y2="60" stroke="#c41e3a" stroke-width="2" opacity="0.6"/>
+              <!-- People icons -->
+              <circle cx="279" cy="76" r="5" fill="#2c1810" opacity="0.5"/>
+              <circle cx="303" cy="59" r="5" fill="#2c1810" opacity="0.6"/>
+              <circle cx="327" cy="41" r="5" fill="#2c1810" opacity="0.75"/>
+              <!-- Label -->
+              <line x1="40" y1="95" x2="360" y2="95" stroke="#b8860b" stroke-width="0.5" opacity="0.3" stroke-dasharray="4,4"/>
+              <text x="200" y="118" text-anchor="middle" font-family="serif" font-size="10" fill="#6b5a4e" opacity="0.5" letter-spacing="6">拔尖创新  超常培养</text>
+            </svg>
+          </div>
+          <div class="card-body">
             <div class="card-title">打造<span class="keyword">拔尖创新</span>人才方阵</div>
-          </div>
-          <div class="card-desc">
-            培养国家战略急需人才，实施国家基础学科拔尖人才培养战略行动，推进"四新"建设，实施"一部六院"科教融汇协同育人项目。
-          </div>
-          <div class="card-tags">
-            <span class="tag tag-red">拔尖计划</span>
-            <span class="tag tag-gold">四新建设</span>
-            <span class="tag tag-ink">科教融汇</span>
-            <span class="tag tag-ink">医教协同</span>
+            <div class="card-desc">培养国家战略急需人才，实施国家基础学科拔尖人才培养战略行动，推进"四新"建设，实施"一部六院"科教融汇协同育人项目。</div>
+            <div class="card-tags">
+              <span class="tag tag-red">拔尖计划</span>
+              <span class="tag tag-gold">四新建设</span>
+              <span class="tag tag-ink">科教融汇</span>
+              <span class="tag tag-ink">医教协同</span>
+            </div>
           </div>
         </div>
 
-        <!-- Card 3 -->
+        <!-- Card 3: 优化结构 -->
         <div class="strategy-card">
           <div class="card-number">叁 · 优化结构</div>
-          <div class="card-header">
-            <div class="card-icon">⚙️</div>
+          <div class="card-illustration">
+            <svg viewBox="0 0 400 130" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="130" fill="#f5f0e8"/>
+              <circle cx="380" cy="20" r="60" fill="rgba(184,134,11,0.05)"/>
+              <!-- Gear large -->
+              <g transform="translate(200,62)">
+                <circle r="28" fill="none" stroke="#b8860b" stroke-width="3" opacity="0.6"/>
+                <circle r="18" fill="#b8860b" opacity="0.15"/>
+                <circle r="8" fill="#b8860b" opacity="0.5"/>
+                <!-- Gear teeth -->
+                <rect x="-4" y="-36" width="8" height="10" rx="1" fill="#b8860b" opacity="0.6"/>
+                <rect x="-4" y="26" width="8" height="10" rx="1" fill="#b8860b" opacity="0.6"/>
+                <rect x="26" y="-4" width="10" height="8" rx="1" fill="#b8860b" opacity="0.6"/>
+                <rect x="-36" y="-4" width="10" height="8" rx="1" fill="#b8860b" opacity="0.6"/>
+                <rect x="17" y="-30" width="8" height="10" rx="1" transform="rotate(45)" fill="#b8860b" opacity="0.5"/>
+                <rect x="-25" y="-30" width="8" height="10" rx="1" transform="rotate(-45)" fill="#b8860b" opacity="0.5"/>
+                <rect x="17" y="20" width="8" height="10" rx="1" transform="rotate(-45)" fill="#b8860b" opacity="0.5"/>
+                <rect x="-25" y="20" width="8" height="10" rx="1" transform="rotate(45)" fill="#b8860b" opacity="0.5"/>
+              </g>
+              <!-- Small gear -->
+              <g transform="translate(300,45)">
+                <circle r="16" fill="none" stroke="#c41e3a" stroke-width="2" opacity="0.5"/>
+                <circle r="10" fill="#c41e3a" opacity="0.12"/>
+                <circle r="5" fill="#c41e3a" opacity="0.4"/>
+                <rect x="-3" y="-21" width="6" height="7" rx="1" fill="#c41e3a" opacity="0.5"/>
+                <rect x="-3" y="14" width="6" height="7" rx="1" fill="#c41e3a" opacity="0.5"/>
+                <rect x="14" y="-3" width="7" height="6" rx="1" fill="#c41e3a" opacity="0.5"/>
+                <rect x="-21" y="-3" width="7" height="6" rx="1" fill="#c41e3a" opacity="0.5"/>
+              </g>
+              <!-- Map/region lines -->
+              <path d="M60 40 Q80 30 100 45 Q120 55 110 70 Q100 85 80 80 Q60 75 60 40Z" fill="none" stroke="#2c1810" stroke-width="1.5" opacity="0.4"/>
+              <path d="M80 55 Q90 50 100 58" fill="none" stroke="#c41e3a" stroke-width="1" opacity="0.5" stroke-dasharray="3,2"/>
+              <circle cx="85" cy="60" r="3" fill="#c41e3a" opacity="0.6"/>
+              <circle cx="100" cy="55" r="2" fill="#b8860b" opacity="0.6"/>
+              <circle cx="72" cy="65" r="2" fill="#2c1810" opacity="0.5"/>
+              <!-- Label -->
+              <line x1="40" y1="95" x2="360" y2="95" stroke="#b8860b" stroke-width="0.5" opacity="0.3" stroke-dasharray="4,4"/>
+              <text x="200" y="118" text-anchor="middle" font-family="serif" font-size="10" fill="#6b5a4e" opacity="0.5" letter-spacing="6">服务战略  精准适配</text>
+            </svg>
+          </div>
+          <div class="card-body">
             <div class="card-title">提升<span class="keyword">服务经济社会</span>发展能力</div>
-          </div>
-          <div class="card-desc">
-            主动服务国家战略与区域发展，调整优化学科专业结构，运用人工智能分析产业急需人才，深化东中西部高校协作。
-          </div>
-          <div class="card-tags">
-            <span class="tag tag-red">专业优化</span>
-            <span class="tag tag-gold">区域协作</span>
-            <span class="tag tag-ink">西部支援</span>
-            <span class="tag tag-ink">部省共建</span>
+            <div class="card-desc">主动服务国家战略与区域发展，调整优化学科专业结构，运用人工智能分析产业急需人才，深化东中西部高校协作。</div>
+            <div class="card-tags">
+              <span class="tag tag-red">专业优化</span>
+              <span class="tag tag-gold">区域协作</span>
+              <span class="tag tag-ink">西部支援</span>
+              <span class="tag tag-ink">部省共建</span>
+            </div>
           </div>
         </div>
 
-        <!-- Card 4 - Featured AI -->
+        <!-- Card 4: AI 赋能 (featured) -->
         <div class="strategy-card featured">
           <div class="card-number">肆 · 智能赋能 ★</div>
-          <div class="card-header">
-            <div class="card-icon">🤖</div>
+          <div class="card-illustration" style="background: linear-gradient(135deg, #fff5f5, #ffeaea);">
+            <svg viewBox="0 0 400 130" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="130" fill="transparent"/>
+              <circle cx="200" cy="65" r="70" fill="rgba(196,30,58,0.04)"/>
+              <!-- Brain/AI chip -->
+              <rect x="155" y="25" width="90" height="80" rx="8" fill="none" stroke="#c41e3a" stroke-width="2" opacity="0.6"/>
+              <rect x="163" y="33" width="74" height="64" rx="4" fill="#c41e3a" opacity="0.07"/>
+              <!-- Circuit lines inside -->
+              <line x1="175" y1="45" x2="225" y2="45" stroke="#c41e3a" stroke-width="1.5" opacity="0.5"/>
+              <line x1="175" y1="55" x2="210" y2="55" stroke="#c41e3a" stroke-width="1.5" opacity="0.4"/>
+              <line x1="190" y1="65" x2="225" y2="65" stroke="#c41e3a" stroke-width="1.5" opacity="0.5"/>
+              <line x1="175" y1="75" x2="215" y2="75" stroke="#c41e3a" stroke-width="1.5" opacity="0.4"/>
+              <line x1="185" y1="85" x2="225" y2="85" stroke="#c41e3a" stroke-width="1.5" opacity="0.5"/>
+              <!-- Nodes -->
+              <circle cx="175" cy="45" r="3" fill="#c41e3a" opacity="0.7"/>
+              <circle cx="205" cy="45" r="3" fill="#c41e3a" opacity="0.7"/>
+              <circle cx="225" cy="45" r="3" fill="#c41e3a" opacity="0.7"/>
+              <circle cx="190" cy="55" r="3" fill="#b8860b" opacity="0.7"/>
+              <circle cx="210" cy="55" r="3" fill="#b8860b" opacity="0.7"/>
+              <circle cx="190" cy="65" r="3" fill="#c41e3a" opacity="0.7"/>
+              <circle cx="210" cy="65" r="3" fill="#c41e3a" opacity="0.7"/>
+              <circle cx="225" cy="65" r="3" fill="#c41e3a" opacity="0.7"/>
+              <circle cx="175" cy="75" r="3" fill="#b8860b" opacity="0.7"/>
+              <circle cx="200" cy="75" r="3" fill="#b8860b" opacity="0.7"/>
+              <circle cx="215" cy="75" r="3" fill="#b8860b" opacity="0.7"/>
+              <circle cx="185" cy="85" r="3" fill="#c41e3a" opacity="0.7"/>
+              <circle cx="205" cy="85" r="3" fill="#c41e3a" opacity="0.7"/>
+              <circle cx="225" cy="85" r="3" fill="#c41e3a" opacity="0.7"/>
+              <!-- Chip pins left/right -->
+              <line x1="145" y1="40" x2="155" y2="40" stroke="#c41e3a" stroke-width="2" opacity="0.5"/>
+              <line x1="145" y1="55" x2="155" y2="55" stroke="#c41e3a" stroke-width="2" opacity="0.5"/>
+              <line x1="145" y1="70" x2="155" y2="70" stroke="#c41e3a" stroke-width="2" opacity="0.5"/>
+              <line x1="145" y1="85" x2="155" y2="85" stroke="#c41e3a" stroke-width="2" opacity="0.5"/>
+              <line x1="245" y1="40" x2="255" y2="40" stroke="#c41e3a" stroke-width="2" opacity="0.5"/>
+              <line x1="245" y1="55" x2="255" y2="55" stroke="#c41e3a" stroke-width="2" opacity="0.5"/>
+              <line x1="245" y1="70" x2="255" y2="70" stroke="#c41e3a" stroke-width="2" opacity="0.5"/>
+              <line x1="245" y1="85" x2="255" y2="85" stroke="#c41e3a" stroke-width="2" opacity="0.5"/>
+              <!-- Radiating signals -->
+              <path d="M100 65 Q120 45 140 55" fill="none" stroke="#c41e3a" stroke-width="1" opacity="0.3" stroke-dasharray="3,3"/>
+              <path d="M90 65 Q115 35 140 48" fill="none" stroke="#c41e3a" stroke-width="1" opacity="0.2" stroke-dasharray="3,3"/>
+              <path d="M300 65 Q280 45 260 55" fill="none" stroke="#c41e3a" stroke-width="1" opacity="0.3" stroke-dasharray="3,3"/>
+              <path d="M310 65 Q285 35 260 48" fill="none" stroke="#c41e3a" stroke-width="1" opacity="0.2" stroke-dasharray="3,3"/>
+              <!-- Sparkles -->
+              <text x="60" y="55" font-size="14" fill="#c41e3a" opacity="0.5">✦</text>
+              <text x="325" y="45" font-size="10" fill="#b8860b" opacity="0.5">✦</text>
+              <text x="335" y="85" font-size="14" fill="#c41e3a" opacity="0.4">✦</text>
+              <line x1="40" y1="95" x2="360" y2="95" stroke="#c41e3a" stroke-width="0.5" opacity="0.2" stroke-dasharray="4,4"/>
+              <text x="200" y="118" text-anchor="middle" font-family="serif" font-size="10" fill="#c41e3a" opacity="0.5" letter-spacing="6">智能赋能  教育变革</text>
+            </svg>
+          </div>
+          <div class="card-body">
             <div class="card-title">实施<span class="keyword">AI赋能高等教育</span>战略行动</div>
-          </div>
-          <div class="card-desc">
-            构建AI赋能教育新场景，将各领域AI最新发展融入专业课教学，建设智慧课程与"教学评"一体化智能教材，推进未来学习中心建设。
-          </div>
-          <div class="card-tags">
-            <span class="tag tag-red">AI融入课程</span>
-            <span class="tag tag-red">智慧教材</span>
-            <span class="tag tag-gold">慕课升级</span>
-            <span class="tag tag-ink">未来学习中心</span>
+            <div class="card-desc">构建AI赋能教育新场景，将各领域AI最新发展融入专业课教学，建设智慧课程与"教学评"一体化智能教材，推进未来学习中心建设。</div>
+            <div class="card-tags">
+              <span class="tag tag-red">AI融入课程</span>
+              <span class="tag tag-red">智慧教材</span>
+              <span class="tag tag-gold">慕课升级</span>
+              <span class="tag tag-ink">未来学习中心</span>
+            </div>
           </div>
         </div>
 
       </div>
 
-      <!-- Card 5 - Full width open -->
-      <div class="strategy-card" style="margin-bottom: 24px;">
-        <div class="card-number">伍 · 开放互鉴</div>
-        <div class="card-header" style="align-items:center;">
-          <div class="card-icon">🌏</div>
-          <div class="card-title">打造<span class="keyword">全球人才培养与集聚</span>高地</div>
+      <!-- Card 5: 开放互鉴 full width -->
+      <div class="card-wide">
+        <div class="card-number" style="position:relative;display:inline-block;margin:12px 0 0 16px;background:var(--stroke);color:var(--gold-light);font-family:'Noto Serif SC',serif;font-size:10px;font-weight:700;padding:2px 9px;letter-spacing:2px;">伍 · 开放互鉴</div>
+        <div class="card-illustration" style="height:110px;">
+          <svg viewBox="0 0 820 110" xmlns="http://www.w3.org/2000/svg">
+            <rect width="820" height="110" fill="#f5f0e8"/>
+            <circle cx="700" cy="20" r="80" fill="rgba(184,134,11,0.05)"/>
+            <circle cx="100" cy="90" r="70" fill="rgba(196,30,58,0.04)"/>
+            <!-- Globe -->
+            <circle cx="410" cy="55" r="42" fill="none" stroke="#b8860b" stroke-width="2" opacity="0.5"/>
+            <ellipse cx="410" cy="55" rx="22" ry="42" fill="none" stroke="#b8860b" stroke-width="1.5" opacity="0.4"/>
+            <ellipse cx="410" cy="55" rx="42" ry="18" fill="none" stroke="#b8860b" stroke-width="1.5" opacity="0.4"/>
+            <line x1="368" y1="55" x2="452" y2="55" stroke="#b8860b" stroke-width="1" opacity="0.3"/>
+            <line x1="410" y1="13" x2="410" y2="97" stroke="#b8860b" stroke-width="1" opacity="0.3"/>
+            <!-- Connection nodes around globe -->
+            <circle cx="290" cy="40" r="6" fill="#c41e3a" opacity="0.6"/>
+            <circle cx="530" cy="35" r="6" fill="#c41e3a" opacity="0.6"/>
+            <circle cx="310" cy="75" r="5" fill="#b8860b" opacity="0.6"/>
+            <circle cx="510" cy="78" r="5" fill="#b8860b" opacity="0.6"/>
+            <circle cx="200" cy="55" r="5" fill="#2c1810" opacity="0.5"/>
+            <circle cx="620" cy="55" r="5" fill="#2c1810" opacity="0.5"/>
+            <!-- Connection lines -->
+            <line x1="296" y1="40" x2="368" y2="50" stroke="#c41e3a" stroke-width="1" opacity="0.35" stroke-dasharray="4,3"/>
+            <line x1="524" y1="35" x2="452" y2="50" stroke="#c41e3a" stroke-width="1" opacity="0.35" stroke-dasharray="4,3"/>
+            <line x1="315" y1="75" x2="375" y2="65" stroke="#b8860b" stroke-width="1" opacity="0.35" stroke-dasharray="4,3"/>
+            <line x1="505" y1="78" x2="445" y2="65" stroke="#b8860b" stroke-width="1" opacity="0.35" stroke-dasharray="4,3"/>
+            <line x1="205" y1="55" x2="368" y2="55" stroke="#2c1810" stroke-width="1" opacity="0.25" stroke-dasharray="4,3"/>
+            <line x1="615" y1="55" x2="452" y2="55" stroke="#2c1810" stroke-width="1" opacity="0.25" stroke-dasharray="4,3"/>
+            <!-- Plane icon -->
+            <path d="M95 55 L120 48 L130 52 L108 60 Z" fill="#c41e3a" opacity="0.5"/>
+            <path d="M108 50 L115 42 L118 44 L112 55 Z" fill="#c41e3a" opacity="0.4"/>
+            <!-- Books flying -->
+            <rect x="680" y="35" width="22" height="16" rx="2" fill="#b8860b" opacity="0.5" transform="rotate(-15,691,43)"/>
+            <rect x="710" y="45" width="18" height="13" rx="2" fill="#c41e3a" opacity="0.45" transform="rotate(10,719,51)"/>
+            <!-- Label -->
+            <line x1="40" y1="95" x2="780" y2="95" stroke="#b8860b" stroke-width="0.5" opacity="0.3" stroke-dasharray="4,4"/>
+            <text x="410" y="108" text-anchor="middle" font-family="serif" font-size="10" fill="#6b5a4e" opacity="0.5" letter-spacing="6">开放合作  引领全球</text>
+          </svg>
         </div>
-        <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px;">
-          <div>
-            <div style="font-size:11px; color:var(--red); font-weight:700; margin-bottom:4px; letter-spacing:1px;">▸ 对外开放</div>
-            <div class="card-desc">实施国际暑期学校等项目，创建吸引海外顶尖人才的交流平台，推动中医药教育、农林教育出海。</div>
-          </div>
-          <div>
-            <div style="font-size:11px; color:var(--red); font-weight:700; margin-bottom:4px; letter-spacing:1px;">▸ 数字合作</div>
-            <div class="card-desc">建强世界慕课与在线教育联盟，持续发布《世界高等教育数字化发展报告》，推动中国标准走出去。</div>
-          </div>
-          <div>
-            <div style="font-size:11px; color:var(--red); font-weight:700; margin-bottom:4px; letter-spacing:1px;">▸ 引领治理</div>
-            <div class="card-desc">加快慕课、AI赋能高等教育等数字教育理念与技术标准走出去，参与并引领全球数字教育治理。</div>
+        <div class="card-wide-body">
+          <div class="card-title" style="font-family:'Noto Serif SC',serif;font-size:15px;font-weight:700;color:var(--stroke);">打造<span class="keyword">全球人才培养与集聚</span>高地</div>
+          <div class="card-wide-grid">
+            <div>
+              <div class="wide-col-title">▸ 对外开放</div>
+              <div class="card-desc">实施国际暑期学校等项目，创建吸引海外顶尖人才的交流平台，推动中医药教育、农林教育出海。</div>
+            </div>
+            <div>
+              <div class="wide-col-title">▸ 数字合作</div>
+              <div class="card-desc">建强世界慕课与在线教育联盟，持续发布《世界高等教育数字化发展报告》，推动中国标准走出去。</div>
+            </div>
+            <div>
+              <div class="wide-col-title">▸ 引领治理</div>
+              <div class="card-desc">加快慕课、AI赋能高等教育等数字教育理念与技术标准走出去，参与并引领全球数字教育治理。</div>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Summary bar -->
+      <!-- Summary -->
       <div class="summary">
         <div class="summary-text">
           <div class="summary-title">核心目标</div>
